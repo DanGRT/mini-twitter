@@ -10,7 +10,7 @@ formElement.addEventListener("submit", event => {
   newTweet.setAttribute("class", "latest-tweet")
   newTweet.textContent = userInput
   timelineElement.insertBefore(newTweet, latestTweet)
-  textBoxElement.textContent = ""
+  textBoxElement.value = ""
 
 
 
