@@ -11,9 +11,17 @@ formElement.addEventListener("submit", event => {
   const latestTweet = document.querySelector(".latest-tweet")
   const userInput = textBoxElement.value
 
+
+
+
   const newTweet = document.createElement("div")
   newTweet.setAttribute("class", "latest-tweet")
   newTweet.textContent = userInput
+
+  const linkRegex = /(?:|[ ])@([a-zA-Z]+)/g
+
+
+  newTweet.innerHTML = newTweet.textContent.replace(linkRegex, ` <a href="/@$1">@$1</a>`)
 
   const deleteIconElement = document.createElement("button")
   deleteIconElement.textContent = "delete"
