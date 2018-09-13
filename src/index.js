@@ -1,6 +1,8 @@
 const formElement = document.querySelector("form")
 const textBoxElement = document.querySelector(".user-text")
 const timelineElement = document.querySelector(".timeline")
+const characterCounterElement = document.querySelector(".character-counter")
+
 formElement.addEventListener("submit", event => {
   event.preventDefault()
   console.log("default prevented")
@@ -11,9 +13,14 @@ formElement.addEventListener("submit", event => {
   newTweet.textContent = userInput
   timelineElement.insertBefore(newTweet, latestTweet)
   textBoxElement.value = ""
+  characterCounterElement.textContent = `0 / 280`
+})
 
 
 
 
+textBoxElement.addEventListener("input", event => {
+  const currentCount = event.target.value.length
+  characterCounterElement.textContent = `${currentCount} / 280`
 
 })
